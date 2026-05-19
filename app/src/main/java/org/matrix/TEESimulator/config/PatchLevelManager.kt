@@ -17,6 +17,12 @@ object PatchLevelManager {
     private const val PIF_DIR = "/data/adb/modules/playintegrityfix"
     private const val FLOOR_YYYYMMDD = 20200101
     private const val MAX_PAST_OFFSET = 10000
+
+    /**
+     * Pixel security bulletins publish monthly; pre-announced dates occasionally
+     * slip by 2-4 weeks. 60 days covers that window without admitting a
+     * far-future date from a hostile or mis-parsed bulletin response.
+     */
     private const val MAX_FUTURE_DAYS = 60L
 
     private val PIF_FILENAMES =
