@@ -184,10 +184,18 @@ object CertificateGenerator {
                 Algorithm.RSA -> "RSA"
                 else -> throw IllegalArgumentException("Unsupported algorithm ID: $algorithm")
             }
+        // Prefer the algorithm-matching keybox, but fall back to any usable key (EC preferred) when
+        // none exists. An EC attestation key validly ECDSA-signs a leaf carrying an RSA subject key,
+        // so an EC-only keybox can still root an RSA forge. Without this fallback an RSA ATTEST_KEY
+        // request on an EC-only keybox throws -75 and the caller's chain never roots ("unknown
+        // certificate"). Mirrors the patch path's fail-safe
+        // (AttestationPatcher.getKeyboxForUidAndAlgorithm) and the RSA-leaf-under-EC-keybox handling
+        // in commit e6d5e4d.
         return KeyBoxManager.getAttestationKey(keyboxFile, algorithmName)
+            ?: KeyBoxManager.getAnyAttestationKey(keyboxFile)
             ?: throw android.os.ServiceSpecificException(
                 -75, // ATTESTATION_KEYS_NOT_PROVISIONED
-                "No attestation key for algorithm $algorithmName in $keyboxFile",
+                "No usable attestation key in $keyboxFile",
             )
     }
 
