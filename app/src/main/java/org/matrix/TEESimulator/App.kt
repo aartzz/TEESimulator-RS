@@ -81,14 +81,18 @@ object App {
      */
     private fun purgeDebugDiagnostics() {
         if (SystemLogger.isDebugBuild) return
+        // .bin dumps and per-UID logs now share the diagnostic dir.
         purgeStale(File(InterceptorUtils.DIAGNOSTIC_DIR), InterceptorUtils.DIAGNOSTIC_DIR) { name ->
-            name.startsWith("teesim-") && name.endsWith(".bin")
+            name.startsWith("teesim-") &&
+                (name.endsWith(".bin") || name.endsWith(".log") || name.endsWith(".log.1"))
         }
-        // Older debug installs wrote the dumps loose in /data/local/tmp; sweep those too.
+        // Older debug installs wrote dumps loose in /data/local/tmp and per-UID logs under the
+        // module config dir; sweep both legacy locations so upgrading to a release build leaves
+        // nothing behind.
         purgeStale(File("/data/local/tmp"), "/data/local/tmp") { name ->
             name.startsWith("teesim-") && name.endsWith(".bin")
         }
-        purgeStale(File("${ConfigurationManager.CONFIG_PATH}/logs"), "per-UID log dir") { name ->
+        purgeStale(File("${ConfigurationManager.CONFIG_PATH}/logs"), "legacy per-UID log dir") { name ->
             name.startsWith("teesim-uid-") && (name.endsWith(".log") || name.endsWith(".log.1"))
         }
     }

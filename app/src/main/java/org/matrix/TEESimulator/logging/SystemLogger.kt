@@ -161,7 +161,9 @@ object SystemLogger {
         uidLog(uid, txId, event, detail())
     }
 
-    private val uidLogDir = File(ConfigurationManager.CONFIG_PATH, "logs")
+    // Co-located with the .bin dumps in InterceptorUtils.DIAGNOSTIC_DIR so every debug artifact sits
+    // in one adb-pullable dir; release builds purge it (see App.purgeDebugDiagnostics).
+    private val uidLogDir = File("/data/local/tmp/teesim")
     private const val UID_LOG_MAX_BYTES = 4L * 1024 * 1024
     private val uidWriters = ConcurrentHashMap<Int, UidLogFile>()
 
