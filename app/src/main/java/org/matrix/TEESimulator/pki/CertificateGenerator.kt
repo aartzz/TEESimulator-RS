@@ -218,6 +218,15 @@ object CertificateGenerator {
             val certChain = CertificateHelper.getCertificateChain(keyInfo.response)
             if (!certChain.isNullOrEmpty()) {
                 val issuer = X509CertificateHolder(certChain[0].encoded).subject
+                // The leaf is signed by keyInfo.keyPair, but the caller verifies it against the
+                // public key of the chain getCertChain(attestKeyAlias) serves. A two-rooted EC chain
+                // (DATA_TOO_LARGE_FOR_MODULUS) is exactly those two disagreeing on algorithm; log
+                // both at the signing instant so an EC attest-key run pins the mismatched edge.
+                SystemLogger.uidLog(uid, null, "attest-sign") {
+                    "alias=$attestKeyAlias signerKey=${keyInfo.keyPair?.public?.algorithm} " +
+                        "servedLeafKey=${certChain[0].publicKey.algorithm} " +
+                        "depth=${certChain.size} issuer=$issuer"
+                }
                 Pair(keyInfo.keyPair, issuer)
             } else {
                 null
