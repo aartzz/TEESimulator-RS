@@ -1893,5 +1893,5 @@ private fun KeyMintAttestation.toAuthorizations(
         }
     )
 
-    return authList.toTypedArray()
+    return InterceptorUtils.normalizeAuthorizationLayout(authList.toTypedArray())
 }
