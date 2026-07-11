@@ -119,6 +119,16 @@ private object JcaAlgorithmMapper {
             }
         return "$keyAlgo/$blockMode/$padding"
     }
+
+    fun mapOaepDigest(digest: Int?): String =
+        when (digest) {
+            Digest.SHA1 -> "SHA-1"
+            Digest.SHA_2_224 -> "SHA-224"
+            Digest.SHA_2_256 -> "SHA-256"
+            Digest.SHA_2_384 -> "SHA-384"
+            Digest.SHA_2_512 -> "SHA-512"
+            else -> "SHA-256"
+        }
 }
 
 private class Signer(keyPair: KeyPair, params: KeyMintAttestation) : CryptoPrimitive {
@@ -175,6 +185,7 @@ private class CipherPrimitive(
     cryptoKey: java.security.Key,
     params: KeyMintAttestation,
     private val opMode: Int,
+    txId: Long,
 ) : CryptoPrimitive {
     private val isAead = params.blockMode.firstOrNull() == BlockMode.GCM
     private val cipher: Cipher =
@@ -184,6 +195,26 @@ private class CipherPrimitive(
                 init(opMode, cryptoKey, javax.crypto.spec.GCMParameterSpec(128, nonce))
             } else if (nonce != null) {
                 init(opMode, cryptoKey, javax.crypto.spec.IvParameterSpec(nonce))
+            } else if (params.padding.firstOrNull() == PaddingMode.RSA_OAEP) {
+                val mainDigest = JcaAlgorithmMapper.mapOaepDigest(params.digest.firstOrNull())
+                val mgfDigest =
+                    params.rsaOaepMgfDigest.firstOrNull()?.let {
+                        JcaAlgorithmMapper.mapOaepDigest(it)
+                    } ?: mainDigest
+                init(
+                    opMode,
+                    cryptoKey,
+                    javax.crypto.spec.OAEPParameterSpec(
+                        mainDigest,
+                        "MGF1",
+                        java.security.spec.MGF1ParameterSpec(mgfDigest),
+                        javax.crypto.spec.PSource.PSpecified.DEFAULT,
+                    ),
+                )
+                SystemLogger.debug {
+                    "[SoftwareOp TX_ID: $txId] oaep-op main=$mainDigest mgf=$mgfDigest " +
+                        "mode=${if (opMode == Cipher.DECRYPT_MODE) "decrypt" else "encrypt"}"
+                }
             } else {
                 init(opMode, cryptoKey)
             }
@@ -315,7 +346,7 @@ class SoftwareOperation(
                                 KeystoreErrorCodes.unsupportedPurpose,
                                 "[SoftwareOp TX_ID: $txId] ENCRYPT requires either secretKey or keyPair.public",
                             )
-                    CipherPrimitive(key, params, Cipher.ENCRYPT_MODE)
+                    CipherPrimitive(key, params, Cipher.ENCRYPT_MODE, txId)
                 }
                 KeyPurpose.DECRYPT -> {
                     val key: java.security.Key =
@@ -325,7 +356,7 @@ class SoftwareOperation(
                                 KeystoreErrorCodes.unsupportedPurpose,
                                 "[SoftwareOp TX_ID: $txId] DECRYPT requires either secretKey or keyPair.private",
                             )
-                    CipherPrimitive(key, params, Cipher.DECRYPT_MODE)
+                    CipherPrimitive(key, params, Cipher.DECRYPT_MODE, txId)
                 }
                 KeyPurpose.AGREE_KEY -> {
                     val kp =
