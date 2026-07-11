@@ -3,6 +3,23 @@
 
 ---
 
+## TEESimulator-RS v6.0.1-305
+
+Closes the five gaps Duck-Detector's supplementary probes (#73/#78) surfaced. Two are functional app-crypto fixes, not just probe fixes: on a broken-TEE device, any app using an AndroidKeyStore HMAC key or an RSA-OAEP-SHA256 key was throwing. Beta — the confirmation logs ride in the debug build; not yet field-verified.
+
+### App crypto correctness
+- HMAC operations now execute instead of throwing. An AndroidKeyStore HMAC key is symmetric, so an HMAC SIGN entered the asymmetric SIGN path and died on a null keyPair, and no MAC primitive existed. A MacPrimitive now runs `Mac` (HmacSHA256/384/512), truncates to the requested MAC_LENGTH (defaulting to the full digest), and verifies with a constant-time compare. SIGN and VERIFY both work.
+- RSA-OAEP-SHA256 decrypt no longer fails with BadPaddingException. The cipher was initialized with no OAEPParameterSpec, so JCA defaulted the OAEP digest to SHA-1 and rejected SHA-256 ciphertext. The correct main and MGF1 digests are now applied; the transformation string is unchanged.
+- Grant-domain attest keys now resolve. A self-granted PURPOSE_ATTEST_KEY (a Domain.GRANT descriptor) could not resolve its signer alias, so generateKey errored and the subject key was never stored (KEY_NOT_FOUND on readback). The grant now resolves to the owner key's alias; the subject key stays Domain.APP-readable.
+
+### Supplementary attestation
+- MODULE_HASH is now sourced from the framework's own getSupplementaryAttestationInfo so the value byte-matches what a verifier derives, falling back to local re-derivation when that API is unreachable.
+
+### Diagnostics (debug builds only)
+- Per-operation oaep-op, hmac-op, and attest-grant lines, plus device-level module-hash and vintf-version source lines, route through the debug logger and stay silent under R8 in release builds.
+
+---
+
 ## TEESimulator-RS v6.0.1-282
 
 AUTO-mode key attestation now forges plain attestation from the keybox instead of deferring to the real TEE.
