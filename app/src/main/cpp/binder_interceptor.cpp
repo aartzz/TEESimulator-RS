@@ -208,6 +208,10 @@ int (*g_original_ioctl)(int fd, int request, ...) = nullptr;
 // Unique ID generator for transactions
 static std::atomic<uint64_t> g_transaction_id_counter = 0;
 
+// TEESimulator daemon PID
+static std::atomic<pid_t> g_daemon_pid = 0;
+
+
 // Context info to pass from the ioctl hook (processBinderWriteRead) to the BinderStub.
 struct ThreadTransactionInfo {
     uint64_t transaction_id;
@@ -368,13 +372,17 @@ void inspectAndRewriteTransaction(binder_transaction_data *txn_data) {
         info.transaction_code = intercept::kBackdoorCode;
         info.target_binder = nullptr;
         hijack = true;
-    // Check 2: Spoof uid of KeyStore requests from the daemon to bypass permission check
+        // Save the daemon's PID
+        g_daemon_pid = txn_data->sender_pid;
+    // Check 2: Bypass interception for root requests, but spoof UID for the daemon
     } else if (txn_data->sender_euid == 0) {
-        // The kernel driver fills sender_euid.
-        // libbinder.so trusts this value to populate IPCThreadState.
-        txn_data->sender_euid = 1000;
-        LOGV("[Hook] Spoofing UID for transaction: 0 -> %d", txn_data->sender_euid);
-        hijack = false; // Never hijack to avoid recursion
+        if (txn_data->sender_pid == g_daemon_pid) {
+            // The kernel driver fills sender_euid.
+            // libbinder.so trusts this value to populate IPCThreadState.
+            txn_data->sender_euid = 1000;
+            LOGV("[Hook] Spoofing UID for transaction: 0 -> %d", txn_data->sender_euid);
+        }
+        hijack = false; // Never hijack root processes (vold, init, cameraserver) to avoid recursion and bootloops
     // Check 3: Normal interception based on registry of monitored binders
     } else {
         // Safe casting based on Binder driver ABI
