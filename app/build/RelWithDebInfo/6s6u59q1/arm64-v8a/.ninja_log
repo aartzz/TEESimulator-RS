@@ -1,0 +1,21 @@
+# ninja log v5
+7	792	1784294214577835201	CMakeFiles/libsupervisor.so.dir/supervisor.cpp.o	671de785b04f2d77
+796	1018	1784294214812831771	/home/artzabaz/TEESimulator-RS/app/build/intermediates/cxx/RelWithDebInfo/6s6u59q1/obj/arm64-v8a/libsupervisor.so	70dcb2abc933ac26
+3	7663	1784294221355736227	CMakeFiles/binder.dir/stub/stub_binder.cpp.o	4dfcca7f785e5e4
+1	8348	1784294222158724497	CMakeFiles/utils.dir/stub/stub_utils.cpp.o	f4908ce49bcc45c
+8349	8542	1784294222319722145	/home/artzabaz/TEESimulator-RS/app/build/intermediates/cxx/RelWithDebInfo/6s6u59q1/obj/arm64-v8a/libutils.so	26fb5474124a1a4d
+8542	8636	1784294222451720217	/home/artzabaz/TEESimulator-RS/app/build/intermediates/cxx/RelWithDebInfo/6s6u59q1/obj/arm64-v8a/libbinder.so	85090383092eef7d
+7673	11276	1784294225080681804	external/LSPlt/lsplt/src/main/jni/CMakeFiles/lsplt_static.dir/elf_util.cc.o	b62d49362b784c78
+4	12584	1784294226379662821	CMakeFiles/libinject.so.dir/inject/main.cpp.o	550a4197762d16e4
+5	12999	1784294226802656638	CMakeFiles/libinject.so.dir/inject/utils.cpp.o	3ff1de8b0fffb226
+1019	14561	1784294228362633836	external/LSPlt/lsplt/src/main/jni/CMakeFiles/lsplt_static.dir/lsplt.cc.o	18890f0d92877100
+14561	14613	1784294228427632886	external/LSPlt/lsplt/src/main/jni/liblsplt_static.a	1d504638af51535e
+14613	14729	1784294228535631307	/home/artzabaz/TEESimulator-RS/app/build/intermediates/cxx/RelWithDebInfo/6s6u59q1/obj/arm64-v8a/libinject.so	6261af2926e944c4
+9	15258	1784294229053623735	CMakeFiles/TEESimulator.dir/binder_interceptor.cpp.o	9fdbbd149bf9d50d
+15258	15358	1784294229167622068	/home/artzabaz/TEESimulator-RS/app/build/intermediates/cxx/RelWithDebInfo/6s6u59q1/obj/arm64-v8a/libTEESimulator.so	540cb41bff430629
+81	8550	1784296538736996177	CMakeFiles/TEESimulator.dir/binder_interceptor.cpp.o	9fdbbd149bf9d50d
+8551	8795	1784296539014991575	/home/artzabaz/TEESimulator-RS/app/build/intermediates/cxx/RelWithDebInfo/6s6u59q1/obj/arm64-v8a/libTEESimulator.so	540cb41bff430629
+19	6033	1784305129719966271	CMakeFiles/TEESimulator.dir/binder_interceptor.cpp.o	9fdbbd149bf9d50d
+6033	6273	1784305129976961920	/home/artzabaz/TEESimulator-RS/app/build/intermediates/cxx/RelWithDebInfo/6s6u59q1/obj/arm64-v8a/libTEESimulator.so	540cb41bff430629
+51	8310	1784305724236954092	CMakeFiles/TEESimulator.dir/binder_interceptor.cpp.o	9fdbbd149bf9d50d
+8312	8486	1784305724414951105	/home/artzabaz/TEESimulator-RS/app/build/intermediates/cxx/RelWithDebInfo/6s6u59q1/obj/arm64-v8a/libTEESimulator.so	540cb41bff430629

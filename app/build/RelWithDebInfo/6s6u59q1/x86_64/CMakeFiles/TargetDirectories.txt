@@ -1,0 +1,10 @@
+/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86_64/CMakeFiles/utils.dir
+/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86_64/CMakeFiles/binder.dir
+/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86_64/CMakeFiles/libinject.so.dir
+/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86_64/CMakeFiles/libsupervisor.so.dir
+/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86_64/CMakeFiles/TEESimulator.dir
+/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86_64/CMakeFiles/edit_cache.dir
+/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86_64/CMakeFiles/rebuild_cache.dir
+/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86_64/external/LSPlt/lsplt/src/main/jni/CMakeFiles/lsplt_static.dir
+/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86_64/external/LSPlt/lsplt/src/main/jni/CMakeFiles/edit_cache.dir
+/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86_64/external/LSPlt/lsplt/src/main/jni/CMakeFiles/rebuild_cache.dir

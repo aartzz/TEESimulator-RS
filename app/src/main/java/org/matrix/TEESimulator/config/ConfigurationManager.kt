@@ -69,6 +69,25 @@ object ConfigurationManager {
         // Start watching for any subsequent file changes.
         ConfigObserver.startWatching()
         SystemLogger.info("Configuration initialized and file observer started.")
+
+        // Eagerly evaluate TEE hardware capabilities in the background after a delay.
+        // This avoids deadlocks at boot while still caching the result before the user
+        // opens the camera or interacts with apps, preventing MTK KeyMint latency crashes.
+        Thread {
+            try {
+                Thread.sleep(15000)
+                SystemLogger.info("Eagerly evaluating TEE capability (background)...")
+                val teeStatus = DeviceAttestationService.isTeeFunctional
+                SystemLogger.info("TEE capability evaluated: $teeStatus")
+                
+                SystemLogger.info("Eagerly evaluating TEE algorithm attestability (background)...")
+                DeviceAttestationService.isEcAttestable(false)
+                DeviceAttestationService.isRsaAttestable(false)
+                SystemLogger.info("TEE algorithm attestability evaluated.")
+            } catch (e: Exception) {
+                SystemLogger.error("Background TEE evaluation failed", e)
+            }
+        }.start()
     }
 
     /**

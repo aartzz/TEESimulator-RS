@@ -1,0 +1,2 @@
+ninja: Entering directory `/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86_64'
+ninja: no work to do.

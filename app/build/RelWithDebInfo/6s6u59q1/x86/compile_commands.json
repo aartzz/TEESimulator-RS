@@ -1,0 +1,42 @@
+[
+{
+  "directory": "/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86",
+  "command": "/home/artzabaz/Android/Sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android29 --sysroot=/home/artzabaz/Android/Sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DBINDER_DISABLE_NATIVE_HANDLE -Dutils_EXPORTS -I/home/artzabaz/TEESimulator-RS/app/src/main/cpp/external/AOSP/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-rtti -fno-exceptions -O2 -g -DNDEBUG -fPIC -std=gnu++2b -o CMakeFiles/utils.dir/stub/stub_utils.cpp.o -c /home/artzabaz/TEESimulator-RS/app/src/main/cpp/stub/stub_utils.cpp",
+  "file": "/home/artzabaz/TEESimulator-RS/app/src/main/cpp/stub/stub_utils.cpp"
+},
+{
+  "directory": "/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86",
+  "command": "/home/artzabaz/Android/Sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android29 --sysroot=/home/artzabaz/Android/Sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DBINDER_DISABLE_NATIVE_HANDLE -Dbinder_EXPORTS -I/home/artzabaz/TEESimulator-RS/app/src/main/cpp/external/AOSP/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-rtti -fno-exceptions -O2 -g -DNDEBUG -fPIC -std=gnu++2b -o CMakeFiles/binder.dir/stub/stub_binder.cpp.o -c /home/artzabaz/TEESimulator-RS/app/src/main/cpp/stub/stub_binder.cpp",
+  "file": "/home/artzabaz/TEESimulator-RS/app/src/main/cpp/stub/stub_binder.cpp"
+},
+{
+  "directory": "/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86",
+  "command": "/home/artzabaz/Android/Sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android29 --sysroot=/home/artzabaz/Android/Sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DBINDER_DISABLE_NATIVE_HANDLE -I/home/artzabaz/TEESimulator-RS/app/src/main/cpp/include -I/home/artzabaz/TEESimulator-RS/app/src/main/cpp/external/LSPlt/lsplt/src/main/jni/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-rtti -fno-exceptions -O2 -g -DNDEBUG -fPIE -std=gnu++2b -o CMakeFiles/libinject.so.dir/inject/main.cpp.o -c /home/artzabaz/TEESimulator-RS/app/src/main/cpp/inject/main.cpp",
+  "file": "/home/artzabaz/TEESimulator-RS/app/src/main/cpp/inject/main.cpp"
+},
+{
+  "directory": "/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86",
+  "command": "/home/artzabaz/Android/Sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android29 --sysroot=/home/artzabaz/Android/Sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DBINDER_DISABLE_NATIVE_HANDLE -I/home/artzabaz/TEESimulator-RS/app/src/main/cpp/include -I/home/artzabaz/TEESimulator-RS/app/src/main/cpp/external/LSPlt/lsplt/src/main/jni/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-rtti -fno-exceptions -O2 -g -DNDEBUG -fPIE -std=gnu++2b -o CMakeFiles/libinject.so.dir/inject/utils.cpp.o -c /home/artzabaz/TEESimulator-RS/app/src/main/cpp/inject/utils.cpp",
+  "file": "/home/artzabaz/TEESimulator-RS/app/src/main/cpp/inject/utils.cpp"
+},
+{
+  "directory": "/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86",
+  "command": "/home/artzabaz/Android/Sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android29 --sysroot=/home/artzabaz/Android/Sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DBINDER_DISABLE_NATIVE_HANDLE -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-rtti -fno-exceptions -O2 -g -DNDEBUG -fPIE -std=gnu++2b -o CMakeFiles/libsupervisor.so.dir/supervisor.cpp.o -c /home/artzabaz/TEESimulator-RS/app/src/main/cpp/supervisor.cpp",
+  "file": "/home/artzabaz/TEESimulator-RS/app/src/main/cpp/supervisor.cpp"
+},
+{
+  "directory": "/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86",
+  "command": "/home/artzabaz/Android/Sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android29 --sysroot=/home/artzabaz/Android/Sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/sysroot -DBINDER_DISABLE_NATIVE_HANDLE -DTEESimulator_EXPORTS -I/home/artzabaz/TEESimulator-RS/app/src/main/cpp/external/linux-kernel/include -I/home/artzabaz/TEESimulator-RS/app/src/main/cpp/include -I/home/artzabaz/TEESimulator-RS/app/src/main/cpp/external/AOSP/include -I/home/artzabaz/TEESimulator-RS/app/src/main/cpp/external/LSPlt/lsplt/src/main/jni/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-rtti -fno-exceptions -O2 -g -DNDEBUG -fPIC -std=gnu++2b -o CMakeFiles/TEESimulator.dir/binder_interceptor.cpp.o -c /home/artzabaz/TEESimulator-RS/app/src/main/cpp/binder_interceptor.cpp",
+  "file": "/home/artzabaz/TEESimulator-RS/app/src/main/cpp/binder_interceptor.cpp"
+},
+{
+  "directory": "/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86",
+  "command": "/home/artzabaz/Android/Sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android29 --sysroot=/home/artzabaz/Android/Sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/sysroot -I/home/artzabaz/TEESimulator-RS/app/src/main/cpp/external/LSPlt/lsplt/src/main/jni/include -I/home/artzabaz/TEESimulator-RS/app/src/main/cpp/external/LSPlt/lsplt/src/main/jni -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-rtti -fno-exceptions -O2 -g -DNDEBUG -fPIC   -std=c++20 -std=gnu++2b -o external/LSPlt/lsplt/src/main/jni/CMakeFiles/lsplt_static.dir/lsplt.cc.o -c /home/artzabaz/TEESimulator-RS/app/src/main/cpp/external/LSPlt/lsplt/src/main/jni/lsplt.cc",
+  "file": "/home/artzabaz/TEESimulator-RS/app/src/main/cpp/external/LSPlt/lsplt/src/main/jni/lsplt.cc"
+},
+{
+  "directory": "/home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/x86",
+  "command": "/home/artzabaz/Android/Sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android29 --sysroot=/home/artzabaz/Android/Sdk/ndk/27.3.13750724/toolchains/llvm/prebuilt/linux-x86_64/sysroot -I/home/artzabaz/TEESimulator-RS/app/src/main/cpp/external/LSPlt/lsplt/src/main/jni/include -I/home/artzabaz/TEESimulator-RS/app/src/main/cpp/external/LSPlt/lsplt/src/main/jni -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -fno-rtti -fno-exceptions -O2 -g -DNDEBUG -fPIC   -std=c++20 -std=gnu++2b -o external/LSPlt/lsplt/src/main/jni/CMakeFiles/lsplt_static.dir/elf_util.cc.o -c /home/artzabaz/TEESimulator-RS/app/src/main/cpp/external/LSPlt/lsplt/src/main/jni/elf_util.cc",
+  "file": "/home/artzabaz/TEESimulator-RS/app/src/main/cpp/external/LSPlt/lsplt/src/main/jni/elf_util.cc"
+}
+]

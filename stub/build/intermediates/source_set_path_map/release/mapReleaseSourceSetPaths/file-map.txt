@@ -1,0 +1,8 @@
+org.matrix.stub-pngs-0 /home/artzabaz/TEESimulator-RS/stub/build/generated/res/pngs/release
+org.matrix.stub-resValues-1 /home/artzabaz/TEESimulator-RS/stub/build/generated/res/resValues/release
+org.matrix.stub-updated_navigation_xml-2 /home/artzabaz/TEESimulator-RS/stub/build/generated/updated_navigation_xml/release
+org.matrix.stub-mergeReleaseResources-3 /home/artzabaz/TEESimulator-RS/stub/build/intermediates/incremental/release/mergeReleaseResources/merged.dir
+org.matrix.stub-mergeReleaseResources-4 /home/artzabaz/TEESimulator-RS/stub/build/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+org.matrix.stub-release-5 /home/artzabaz/TEESimulator-RS/stub/build/intermediates/merged_res/release/mergeReleaseResources
+org.matrix.stub-main-6 /home/artzabaz/TEESimulator-RS/stub/src/main/res
+org.matrix.stub-release-7 /home/artzabaz/TEESimulator-RS/stub/src/release/res

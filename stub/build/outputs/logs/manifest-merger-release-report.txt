@@ -1,0 +1,14 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/artzabaz/TEESimulator-RS/stub/src/main/AndroidManifest.xml:2:1-12
+INJECTED from /home/artzabaz/TEESimulator-RS/stub/src/main/AndroidManifest.xml:2:1-12
+	package
+		INJECTED from /home/artzabaz/TEESimulator-RS/stub/src/main/AndroidManifest.xml
+uses-sdk
+INJECTED from /home/artzabaz/TEESimulator-RS/stub/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/artzabaz/TEESimulator-RS/stub/src/main/AndroidManifest.xml
+INJECTED from /home/artzabaz/TEESimulator-RS/stub/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/artzabaz/TEESimulator-RS/stub/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/artzabaz/TEESimulator-RS/stub/src/main/AndroidManifest.xml

@@ -1,0 +1,8 @@
+/home/artzabaz/Android/Sdk/cmake/3.22.1/bin/ninja \
+  -C \
+  /home/artzabaz/TEESimulator-RS/app/build/RelWithDebInfo/6s6u59q1/armeabi-v7a \
+  TEESimulator \
+  binder \
+  libinject.so \
+  libsupervisor.so \
+  utils

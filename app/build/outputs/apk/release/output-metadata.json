@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "org.matrix.TEESimulator",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 309,
+      "versionName": "v6.0.1",
+      "outputFile": "app-release-unsigned.apk"
+    }
+  ],
+  "elementType": "File",
+  "minSdkVersionForDexing": 29
+}
