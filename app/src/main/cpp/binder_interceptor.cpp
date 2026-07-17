@@ -374,15 +374,15 @@ void inspectAndRewriteTransaction(binder_transaction_data *txn_data) {
         hijack = true;
         // Save the daemon's PID
         g_daemon_pid = txn_data->sender_pid;
-    // Check 2: Bypass interception for root requests, but spoof UID for the daemon
-    } else if (txn_data->sender_euid == 0) {
+    // Check 2: Bypass interception for system requests, but spoof UID for the daemon
+    } else if (txn_data->sender_euid < 10000 || txn_data->sender_euid == 10094) {
         if (txn_data->sender_pid == g_daemon_pid) {
             // The kernel driver fills sender_euid.
             // libbinder.so trusts this value to populate IPCThreadState.
             txn_data->sender_euid = 1000;
             LOGV("[Hook] Spoofing UID for transaction: 0 -> %d", txn_data->sender_euid);
         }
-        hijack = false; // Never hijack root processes (vold, init, cameraserver) to avoid recursion and bootloops
+        hijack = false; // Never hijack system processes (cameraserver=1047, audioserver=1041, vold=0) to avoid hardware HAL crashes
     // Check 3: Normal interception based on registry of monitored binders
     } else {
         // Safe casting based on Binder driver ABI
