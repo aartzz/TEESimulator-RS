@@ -26,6 +26,8 @@ object App {
     // The delay in milliseconds before retrying to initialize the interceptor.
     private const val RETRY_DELAY_MS = 1000L
 
+    lateinit var appContext: Context
+
     /**
      * The main entry point of the TEESimulator application.
      *
@@ -41,6 +43,7 @@ object App {
 
         try {
             val systemContext = prepareEnvironment()
+            appContext = systemContext
 
             // Spoof boot-state props before any hook attaches, so keystore2's
             // cached snapshot reflects the spoofed values.
